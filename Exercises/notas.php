@@ -7,7 +7,7 @@
     <h1>Ejercicio Notas</h1>
     <h2>Usando variables y la sentencia if en PHP</h2>
     <?php
-      $notaAcumulado=40;
+      $notaAcumulado=$_POST["notaAcumulado"];
       $notaExamen=30;
       $notaFinal=$notaAcumulado+$notaExamen;
     ?>
