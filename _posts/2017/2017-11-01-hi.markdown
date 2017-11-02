@@ -1,0 +1,24 @@
+---
+Clase: Introducción a la Computación
+Asignado por: Ing. Jaime Escoto
+Título: Tarea 1
+Fecha: '2017-11-01 22:28'
+---
+
+# Tarea 1
+## Haga el codigo en PHP que resuelva el siguiente problema
+```
+Se quiere hacer una aplicación que calcule el total a pagar de un parqueo.
+La primera hora no se cobra.
+Por cada hora se cobran Lps. 20.00.
+Por cada fragmento de hora se cobran Lps. 10.00
+El programa debe desglosar esos dos cobros.
+La entrada del programa es la cantidad de minutos que se usó el parqueo.
+```
+### Ejemplo:
+
+| Cantidad de minutos     | Cobro por horas     | Cobro por fracción | Total
+| :------------- | :------------- | :------------- | :------------- |
+| ** 70 **       | *Lps. 0.00 *      |*Lps. 10.00*| *Lps. 10.00* |
+| **130**   | *Lps. 20.00*   | *Lps. 10.00*  | *Lps. 30.00* |
+| **200**   | *Lps. 40.00*   | *Lps. 10.00*  | *Lps. 50.00* |
