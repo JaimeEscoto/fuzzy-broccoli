@@ -15,7 +15,7 @@ Por cada fragmento de hora se cobran Lps. 10.00
 El programa debe desglosar esos dos cobros.
 La entrada del programa es la cantidad de minutos que se usó el parqueo.
 ```
-### Ejemplo:
+#### Ejemplo:
 
 | Cantidad de minutos     | Cobro por horas     | Cobro por fracción | Total
 | :------------- | :------------- | :------------- | :------------- |
