@@ -8,7 +8,7 @@
     <h2>Usando variables y la sentencia if en PHP</h2>
     <?php
       $notaAcumulado=$_POST["notaAcumulado"];
-      $notaExamen=30;
+      $notaExamen=$_POST["notaExamen"];
       $notaFinal=$notaAcumulado+$notaExamen;
     ?>
     <table border="2">
