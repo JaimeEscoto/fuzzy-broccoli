@@ -1,11 +1,11 @@
 ---
 Clase: Introducción a la Computación
 Asignado por: Ing. Jaime Escoto
-Título: Tarea 1
+Título: Reto 1
 Fecha: '2017-11-01 22:28'
 ---
 
-# Tarea 1
+# Reto 1
 ## Haga el codigo en PHP que resuelva el siguiente problema
 ```
 Se quiere hacer una aplicación que calcule el total a pagar de un parqueo.
