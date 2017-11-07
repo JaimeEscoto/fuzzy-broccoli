@@ -23,7 +23,7 @@
        }
 
        $tag = '99points';
-       $client_id = "cb37b9125e0e4599a2ecc047add36e65";
+       $client_id = "3ed3d1d.cb37b9125e0e4599a2ecc047add36e65";
        $url = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id='.$client_id;
 
        $all_result  = processURL($url);
