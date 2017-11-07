@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Instagram Search</title>
   </head>
   <body>
-
+<h1>Search by Username</h1>
+<h2>Beta</h2>
 
 
 <?php
