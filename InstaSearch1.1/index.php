@@ -29,8 +29,8 @@
 					<!-- Banner -->
 						<section id="banner">
 							<div class="inner">
-								<h1>Hey, I'm Snapshot</h1>
-								<p>A fully responsive gallery template by <a href="https://templated.co">TEMPLATED</a></p>
+								<h1>Welcome to InstaSearch Beta1.1</h1>
+								<p>Using a fully responsive gallery template by <a href="https://templated.co">TEMPLATED</a></p>
 								<ul class="actions">
 									<li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
 								</ul>
@@ -43,36 +43,114 @@
 							<!-- Photo Galleries -->
 								<div class="gallery">
 									<header class="special">
-										<h2>What's New</h2>
+										<form class="" action="index.php" method="get">
+											<h1>What's New?</h1>
+											<table>
+												<tr>
+													<td></td>
+													<td><input type="text" name="hashTag" placeholder="Enter HashTag" value="">
+													</td>
+													<td><button type="submit" name="button">Search</button>
+												</form></td>
+												</tr>
+											</table>
 									</header>
+									<script>
+									function myFunction(link) {
+									    window.location.href = link;
+									}
+
+									</script>
 									<div class="content">
+										<?php
+										  //Aca configuramos para que puedan obtener las publicaciones
+											if (isset($_GET["hashTag"])) {
+												$hashTag = $_GET["hashTag"];
+											}
+											else {
+												$hashTag = "art";
+											}
+
+										    //$photos = $_GET["photos"];
+												$photos = 50;
+										    $url = "https://www.instagram.com/explore/tags/$hashTag/?__a=1";
+
+										    $ch = curl_init();
+
+										    curl_setopt($ch, CURLOPT_URL, $url);
+										    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+										    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+
+										    $result = curl_exec($ch);
+										    curl_close($ch);
+
+										    $result = json_decode($result);
+												$i = 0;
+										?>
+										<?php     foreach($result->tag->media->nodes as $post): ?>
+											<div class="media">
+									   <a href="<?php echo $post->display_src ?>" >
+									       <img src="<?php echo $post->thumbnail_resources[2]->src ?>" alt=""
+												 title="<?php echo $post->caption ?>"  />
+									   </a>
+										 <div class="social column">
+										 <table>
+										 	<tr>
+
+										 		<td> <h5>	<?php echo "Comments: ".$post->comments->count; ?></h5></td>
+												<td><?php echo "Likes: ".$post->likes->count; ?></td>
+												<td>
+													<!--
+													<a href="<?php echo "www.instagram.com/p/".$post->code ?>" class="icon fa-instagram"><span class="label">Instagram</span></a>
+													<a href="<?php echo "www.instagram.com/p/".$post->code ?>" target="_blank" >
+													 <a href="Hello">	InstaLink </a>
+													 <?php echo "www.instagram.com/p/".$post->code ?>
+
+													 <a class="icon fa-instagram"><span class="label">Instagram</span></li>
+													 <a id="myLink" onclick="myFunction('<?php echo "http://www.instagram.com/p/".$post->code;?>')">Visit Instagram Profile</a>
+													 -->
+													 <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/".$post->code;?>')">
+														 	Go to <img src="images/instagram.png" height="16" width="16">
+													 </button>
+
+												</td>
+										 	</tr>
+										 </table>
+
+										 </div>
+										 </div>
+
+										<!-- <a href="<?php echo "www.instagram.com/p/".$post->code ?>" class="icon fa-instagram"><span class="label">Instagram</a> -->
+
+
+									 <?php
+									 if ($i%2 ==0) {
+									 	?>
 										<div class="media">
-											<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
+											<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+												<!-- InstaSerch_Beta_01 -->
+												<ins class="adsbygoogle"
+													 style="display:inline-block;width:336px;height:280px"
+													 data-ad-client="ca-pub-2987567760800321"
+													 data-ad-slot="4306167710"></ins>
+												<script>
+												(adsbygoogle = window.adsbygoogle || []).push({});
+												</script>
 										</div>
-										<div class="media">
-											<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
+										<?php
+									 }
+
+									 if (++$i == $photos)
+									 //Fin
+									 break; endforeach ?>
+
+
+
 									</div>
 									<footer>
 										<a href="gallery.html" class="button big">Full Gallery</a>
+										<script>var adParams = {s: 1000321457, w: 300, h: 250, c: 2, blank: false}; </script><script src="//js.srcsmrtgs.com/js/ad.js"></script>
 									</footer>
 								</div>
 						</section>
