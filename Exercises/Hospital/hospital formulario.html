@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario Hospital</title>
+  </head>
+  <body>
+    <h1>Formulario Hospital</h1>
+    <h2>Usando formulario y option con metodo get</h2>
+
+    <form class="" action="hospital.php" method="get">
+      <table border="2">
+        <tr>
+          <td><label for="">Estado</label></td>
+          <td>
+            <select class="" name="estado">
+              <option value="ayunas">Ayunas</option>
+              <option value="pp">PP</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="">Nivel</label></td>
+          <td>
+              <input type="number" name="nivel" min="0" max="1200"value="120">
+          </td>
+        </tr>
+      </table>
+      <button type="submit" name="button">Enviar datos</button>
+    </form>
+
+  </body>
+</html>

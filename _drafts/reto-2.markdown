@@ -22,4 +22,4 @@ Con esos dos datos el programa debe calcular el diagnistico usando la siguiente 
 | Sin Diabetes     | Prediabetes     | Diabetes |
 | :------------- | :------------- | :------------- |
 | Ayunas 70 -100      | Ayunas 101 -125      |Ayunas > 125|
-| Glucosa < 140   | Glucosa 141 - 199   | Glucosa > 199  |
+| Posprandial < 140   | Posprandial 141 - 199   | Posprandial > 199  |

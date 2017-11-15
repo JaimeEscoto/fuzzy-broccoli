@@ -47,7 +47,7 @@ $i = 0;
 
  <?php     foreach($result->tag->media->nodes as $post): ?>
   <a href="<?php echo $post->display_src ?>" target="blank" title="<?php echo $post->caption ?>">
-      <img src="<?php echo $post->thumbnail_src ?>" alt="<?php echo $post->caption ?>" height="150" width="150" />
+      <img src="<?php echo $post->display_src ?>" alt="<?php echo $post->caption ?>" height="600" width="600" />
   </a>
 
 <?php
