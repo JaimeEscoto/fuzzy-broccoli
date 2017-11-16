@@ -14,7 +14,7 @@
 
     $username = $_POST["username"];
     $photos = $_POST["photos"];
-    $url = "https://www.instagram.com/$username/media/";
+    $url = "https://www.instagram.com/$username/?__a=1";
 
     $ch = curl_init();
 

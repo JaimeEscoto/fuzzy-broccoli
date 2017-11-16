@@ -11,7 +11,24 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="shortcut icon" href="favicon.ico">
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+
    </head>
    <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
@@ -198,6 +215,16 @@
          function myFunction(link) {
          		window.location.href = link;
          }
+
+         function downloadFunction(uri, name) {
+           var link = document.createElement("a");
+           link.download = name;
+           link.href = uri;
+           document.body.appendChild(link);
+           link.click();
+           document.body.removeChild(link);
+           delete link;
+         }
       </script>
       <script type="text/javascript" src="https://ads.exdynsrv.com/ads.js"></script>
       <noscript><a href="https://main.exdynsrv.com/img-click.php?idzone=2833306" target="_blank"><img src="https://syndication.exdynsrv.com/ads-iframe-display.php?idzone=2833306&output=img&type=468x60" width="468" height="60"></a></noscript>
@@ -224,6 +251,7 @@
             ?>
             <section id="banner">
                <div class="inner">
+                 <img src="BS-logo-nxn.png" alt="" height="200" width="200"  />
                   <h1>Welcome to BestShot Beta1.1</h1>
                   <p>The most updated <b>images</b> from Instagram</p>
                   <ul class="actions">
@@ -281,7 +309,7 @@
                         $searchData = $_GET["searchData"];
                         }
                         else {
-                        $searchData = "Design";
+                        $searchData = "architecture";
                         }
 
 
@@ -324,7 +352,7 @@
                           if($ultraResult!=0)
                          foreach($ultraResult as $post): ?>
                      <div class="media">
-                        <a href="<?php echo $post->display_src ?>" >
+                        <a href="<?php echo $post->display_src ?>">
                         <img src="<?php echo $post->thumbnail_resources[2]->src ?>" alt=""
                            title="<?php echo $post->caption ?>"  />
                         </a>
@@ -339,6 +367,9 @@
                                     <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/".$post->code;?>')">
                                     Go<img src="images/instagram.png" height="16" width="16">
                                     </button>
+                                 </td>
+                                 <td>
+                                     <button type="submit" onclick="downloadFunction('<?php echo $post->display_src ?>','BestShot.jpg')">d!</button>
                                  </td>
                               </tr>
                            </table>
@@ -358,9 +389,11 @@
                            <table>
                               <tr>
                                  <td>
-                                    <h5>Comments:</h5>
+                                  <h5><img src="images/comment.png" height="16" width="16"><?php echo ": ".rand(1,80); ?></h5>
                                  </td>
-                                 <td>Likes:</td>
+                                 <td>
+                                   <h5><img src="images/love.png" height="16" width="16"><?php echo ": ".rand(1,80); ?></h5>
+                                 </td>
                                  <td>
                                     <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/";?>')">
                                     Go <img src="images/instagram.png" height="16" width="16">
