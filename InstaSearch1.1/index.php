@@ -208,6 +208,22 @@
       font-size: 14px;
       opacity: 0.4;
       }
+      @font-face {
+    font-family: thePageFont;
+    src: url(assets/fonts/gloucester.ttf);
+      }
+
+    div.bsfont {
+     font-family: thePageFont;
+
+     #banner:before {
+   		background-image: url("<?php echo "p_0".rand(1,5); ?>.jpg") !important;
+
+   	}
+
+
+
+}
    </style>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
    <body>
@@ -249,10 +265,14 @@
             if (!isset($_GET["searchData"])) {
 
             ?>
-            <section id="banner">
+
+            <section id="banner" style='background-image: url(images/banner/p_0<?php echo rand(1,5); ?>.jpg);'>
                <div class="inner">
-                 <img src="BS-logo-nxn.png" alt="" height="40%" width="40%"  />
-                  <h1>Welcome to BestShot Beta1.1</h1>
+                 <img src="BS-logo-nxn.png" alt="" height="30%" width="30%"  />
+                  <div class="bsfont">
+
+                  <h1>BestShot Beta</h1>
+                  </div>
                   <p>The most updated <b>images</b> from Instagram</p>
                   <ul class="actions">
                      <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
