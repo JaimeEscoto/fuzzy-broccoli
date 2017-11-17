@@ -6,7 +6,6 @@
   </head>
   <body>
     <h1>Usando ciclo for</h1>
-
     <h2>Imprimir numeros del 0 al 10</h2>
     <?php
       for ($i=0 ; $i<=10 ; $i++)
@@ -23,7 +22,6 @@
            echo $i;
        }
       ?>
-
       <h2>Imprimir numeros del 0 al 10 de 3 en 3</h2>
       <?php
         for ($i=0 ; $i<=10 ; $i=$i+3)

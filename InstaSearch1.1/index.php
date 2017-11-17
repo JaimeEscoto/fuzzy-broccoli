@@ -238,7 +238,7 @@
          <nav id="nav">
             <ul>
                <li><a href="index.php" class="active"><span class="icon fa-home"></span></a></li>
-               <li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+               <li><a href="gallery.php"><span class="icon fa-camera-retro"></span></a></li>
                <li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
             </ul>
          </nav>
@@ -251,7 +251,7 @@
             ?>
             <section id="banner">
                <div class="inner">
-                 <img src="BS-logo-nxn.png" alt="" height="200" width="200"  />
+                 <img src="BS-logo-nxn.png" alt="" height="40%" width="40%"  />
                   <h1>Welcome to BestShot Beta1.1</h1>
                   <p>The most updated <b>images</b> from Instagram</p>
                   <ul class="actions">
@@ -344,9 +344,9 @@
                           else {
                             try {
                               $ultraResult=$result->user->media->nodes;
-} catch (Exception $e) {
-                $ultraResult=0;
-}
+                            } catch (Exception $e) {
+                              $ultraResult=0;
+                            }
 
                           }
                           if($ultraResult!=0)
@@ -412,7 +412,7 @@
                       ?>
                   </div>
                   <footer>
-                  <a href="gallery.html" class="button big">Full Gallery</a>
+                  <a href="gallery.php" class="button big">Full Gallery</a>
                </div>
             </section>
             <!-- Contact -->

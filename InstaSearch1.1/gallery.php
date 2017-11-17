@@ -18,7 +18,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.php"><span class="icon fa-home"></span></a></li>
-						<li><a href="gallery.html" class="active"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="gallery.php" class="active"><span class="icon fa-camera-retro"></span></a></li>
 						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
 					</ul>
 				</nav>
@@ -45,10 +45,89 @@
 												<li><a href="#" data-tag="people" class="button">People</a></li>
 												<li><a href="#" data-tag="place" class="button">Places</a></li>
 												<li><a href="#" data-tag="thing" class="button">Things</a></li>
+												<li><a href="#" data-tag="featured" class="button">Featured</a></li>
 											</ul>
 										</header>
 
 										<div class="content">
+
+
+		                     <?php
+		                        //Aca configuramos para que puedan obtener las publicaciones
+
+		                        $photos = 1000;
+		                       	 $url = "https://www.instagram.com/explore/tags/BestShotPost/?__a=1";
+		                          $ch = curl_init();
+		                          curl_setopt($ch, CURLOPT_URL, $url);
+		                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		                          curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+		                          $result = curl_exec($ch);
+		                          curl_close($ch);
+		                          $result = json_decode($result);
+		                          $ultraResult=$result->tag->media->nodes;
+		                      $i = 0;
+		                         foreach($ultraResult as $post): ?>
+		                     <div class="media all featured">
+		                        <a href="<?php echo $post->display_src ?>">
+		                        <img src="<?php echo $post->thumbnail_resources[2]->src ?>" alt=""
+		                           title="<?php echo $post->caption ?>"  />
+		                        </a>
+		                        <div class="social column">
+		                           <table>
+		                              <tr>
+		                                 <td>
+		                                    <h5><img src="images/comment.png" height="16" width="16"><?php echo ": ".$post->comments->count; ?></h5>
+		                                 </td>
+		                                 <td><h5><img src="images/love.png" height="16" width="16"><?php echo ": ".$post->likes->count; ?></h5></td>
+		                                 <td>
+		                                    <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/".$post->code;?>')">
+		                                    Go<img src="images/instagram.png" height="16" width="16">
+		                                    </button>
+		                                 </td>
+		                                 <td>
+		                                     <button type="submit" onclick="downloadFunction('<?php echo $post->display_src ?>','BestShot.jpg')">d!</button>
+		                                 </td>
+		                              </tr>
+		                           </table>
+		                        </div>
+		                     </div>
+		                     <!-- <a href="<?php echo "www.instagram.com/p/".$post->code ?>" class="icon fa-instagram"><span class="label">Instagram</a> -->
+		                     <?php
+		                        if ($i ==3) {
+		                        	?>
+		                     <div class="media">
+		                        <!-- InstaSerch_Beta_01 -->
+		                        <ins class="adsbygoogle"
+		                           style="display:inline-block;width:220px;height:220px"
+		                           data-ad-client="ca-pub-2987567760800321"
+		                           data-ad-slot="4306167710"></ins>
+		                        <div class="social column">
+		                           <table>
+		                              <tr>
+		                                 <td>
+		                                  <h5><img src="images/comment.png" height="16" width="16"><?php echo ": ".rand(1,80); ?></h5>
+		                                 </td>
+		                                 <td>
+		                                   <h5><img src="images/love.png" height="16" width="16"><?php echo ": ".rand(1,80); ?></h5>
+		                                 </td>
+		                                 <td>
+		                                    <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/";?>')">
+		                                    Go <img src="images/instagram.png" height="16" width="16">
+		                                    </button>
+		                                 </td>
+		                              </tr>
+		                           </table>
+		                        </div>
+		                     </div>
+		                     <?php
+		                        }
+
+		                        if (++$i == $photos)
+		                        //Fin
+		                        break; endforeach;
+		                      ?>
+
+
 											<div class="media all people">
 												<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
 											</div>
