@@ -255,7 +255,7 @@
             <ul>
                <li><a href="index.php" class="active"><span class="icon fa-home"></span></a></li>
                <li><a href="gallery.php"><span class="icon fa-camera-retro"></span></a></li>
-               <li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+              <!--<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li> -->
             </ul>
          </nav>
          <!-- Main -->
@@ -283,12 +283,11 @@
             else {
 
              ?>
+             <!-- Header -->
+   						<header id="header">
+   							<div>Searching: <span><?php echo $_GET["searchData"]; ?></span></div>
+   						</header>
 
-            <section id="contact">
-               <div class="column">
-                  <h2>Searching: <?php echo $_GET["searchData"]; ?></h2>
-               </div>
-              </section>
               <?php } ?>
             <!-- Gallery -->
             <section id="galleries">
