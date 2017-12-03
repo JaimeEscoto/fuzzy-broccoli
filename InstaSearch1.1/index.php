@@ -29,6 +29,19 @@
       <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
 
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27162090-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-27162090-2');
+      </script>
+
+
+
    </head>
    <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
@@ -215,9 +228,10 @@
 
     div.bsfont {
      font-family: thePageFont;
+   }
 
-     #banner:before {
-   		background-image: url("<?php echo "p_0".rand(1,5); ?>.jpg") !important;
+     #banner {
+   		background-image: url("<?php echo "images/banner/p_0".rand(1,5).".jpg"; ?>") !important;
 
    	}
 
@@ -226,10 +240,21 @@
 }
    </style>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+   <div id="fb-root"></div>
+   <script>(function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.11';
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));</script>
+
    <body>
       <script>
          function myFunction(link) {
-         		window.location.href = link;
+            var win = window.open(link, '_blank');
+            win.focus();
          }
 
          function downloadFunction(uri, name) {
@@ -266,7 +291,10 @@
 
             ?>
 
-            <section id="banner" style='background-image: url(images/banner/p_0<?php echo rand(1,5); ?>.jpg);'>
+            <!--<section id="banner" style='background-image: url(images/banner/p_0<?php echo rand(1,5); ?>.jpg);'>
+            -->
+            <section id="banner">
+
                <div class="inner">
                  <img src="BS-logo-nxn.png" alt="" height="30%" width="30%"  />
                   <div class="bsfont">
@@ -284,9 +312,19 @@
 
              ?>
              <!-- Header -->
-   						<header id="header">
-   							<div>Searching: <span><?php echo $_GET["searchData"]; ?></span></div>
-   						</header>
+
+                  <section id="contact">
+                <div class="column bsfont">
+ 							<h1>Searching: <?php echo $_GET["searchData"]; ?></h1></div>
+                  <div class="social column">
+                     <ul class="icons">
+                       <ul class="icons">
+                          <li><a href="http://www.facebook.com/bestshot.tk" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                          <li><a href="http://www.instagram.com/bestshot.tk" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                       </ul>
+                     </ul>
+                  </div>
+                  </section>
 
               <?php } ?>
             <!-- Gallery -->
@@ -295,7 +333,9 @@
                <div class="gallery">
                   <header class="special">
                      <form class="" action="index.php" method="get">
-                        <h1>What's New?</h1>
+                       <div class="bsfont">
+                          <h1>What's New?</h1>
+                       </div>
                         <table border="0">
                            <tr>
                               <td colspan="2">
@@ -328,7 +368,7 @@
                         $searchData = $_GET["searchData"];
                         }
                         else {
-                        $searchData = "architecture";
+                        $searchData = "liveauthentic";
                         }
 
 
@@ -384,11 +424,15 @@
                                  <td><h5><img src="images/love.png" height="16" width="16"><?php echo ": ".$post->likes->count; ?></h5></td>
                                  <td>
                                     <button type="submit" name="button" onclick="myFunction('<?php echo "http://www.instagram.com/p/".$post->code;?>')">
-                                    Go<img src="images/instagram.png" height="16" width="16">
+                                    <img src="images/instagram.png" height="16" width="16">
                                     </button>
                                  </td>
                                  <td>
-                                     <button type="submit" onclick="downloadFunction('<?php echo $post->display_src ?>','BestShot.jpg')">d!</button>
+                                     <button type="submit" onclick="downloadFunction('<?php echo $post->display_src ?>','BestShot.jpg')">
+
+                                       <img src="images/download.png" height="16" width="16">
+
+                                     </button>
                                  </td>
                               </tr>
                            </table>
@@ -450,32 +494,17 @@
 
                   <h3>Follow Us</h3>
                   <ul class="icons">
-                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                     <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <!--
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    -->
+                     <li><a href="www.facebook.com/bestshot.tk" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                     <li><a href="www.instagram.com/bestshot.tk" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
                   </ul>
                </div>
-               <!-- Form -->
                <div class="column">
-                  <h3>Get in Touch</h3>
-                  <form action="#" method="post">
-                     <div class="field half first">
-                        <label for="name">Name</label>
-                        <input name="name" id="name" type="text" placeholder="Name">
-                     </div>
-                     <div class="field half">
-                        <label for="email">Email</label>
-                        <input name="email" id="email" type="email" placeholder="Email">
-                     </div>
-                     <div class="field">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-                     </div>
-                     <ul class="actions">
-                        <li><input value="Send Message" class="button" type="submit"></li>
-                     </ul>
-                  </form>
+                 <div class="fb-page" data-href="https://www.facebook.com/BESTSHOT.tk" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/BESTSHOT.tk" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/BESTSHOT.tk">BestShot</a></blockquote></div>
                </div>
+
             </section>
             <!-- Footer -->
             <footer id="footer">
